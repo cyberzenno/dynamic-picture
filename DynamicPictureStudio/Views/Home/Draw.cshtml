@@ -1,0 +1,15 @@
+﻿@model string
+@{
+    Layout = "~/Views/Shared/_LayoutFullScreen.cshtml";
+
+    ViewBag.Title = "Dp";
+}
+
+<div data-dynamic-picture="@Model"></div>
+
+<script>
+    $(document).ready(function () {
+        DynamicPictureStudio.Run();
+    });
+</script>
+

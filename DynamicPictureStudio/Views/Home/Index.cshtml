@@ -1,0 +1,46 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    ViewBag.Title = "Index";
+}
+
+<div class="row">
+    <div class="col-sm-4">
+        @Html.DisplayFor(m => m, "DynamicPicture", new { DpId = "dp-gradient-test", DpTitle = "Grid Dynamic Picture" })
+    </div>
+    <div class="col-sm-4">
+        @Html.DisplayFor(m => m, "DynamicPicture", new { DpId = "dp-grid" })
+    </div>
+    <div class="col-sm-4">
+        @Html.DisplayFor(m => m, "DynamicPicture", new { DpId = "dp-grid-1" })
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-4">
+        @Html.DisplayFor(m => m, "DynamicPicture", new { DpId = "dp-svg", DpTitle = "Svg Test" })
+    </div>
+    <div class="col-sm-4">
+      
+    </div>
+    <div class="col-sm-4">
+
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-4">
+        @Html.DisplayFor(m => m, "DynamicPicture", new { DpId = "dp-hearts", DpTitle = "Hearts Dynamic Picture" })
+    </div>
+    <div class="col-sm-4">
+        @Html.DisplayFor(m => m, "DynamicPicture", new { DpId = "dp-hearts-1" })
+    </div>
+    <div class="col-sm-4">
+
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        DynamicPictureStudio.Run();
+    });
+
+</script>

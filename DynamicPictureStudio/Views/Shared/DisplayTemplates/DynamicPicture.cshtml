@@ -1,0 +1,5 @@
+﻿
+<h2 class="with-height">@ViewBag.DpTitle</h2>
+
+<div data-dynamic-picture="@ViewBag.DpId"></div>
+@Html.ActionLink("Full Screen", "Draw", new { id = ViewBag.DpId }, new { @class = "btn btn-xs btn-default btn-space", target = "_blank" })

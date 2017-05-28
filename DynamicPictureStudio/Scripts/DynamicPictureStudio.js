@@ -15,7 +15,7 @@ var DynamicPictureStudio = {
 DynamicPictureStudio.Run = function () {
 
     $("[data-dynamic-picture]").each(function (i, el) {
-        
+
         var name = $(el).data("dynamic-picture");
         var dynamicPicture = DynamicPictureFactory.Create(name);
 
@@ -33,9 +33,12 @@ DynamicPictureStudio.Init = function (canvasId, dynamicPicture) {
     //run dp
     dynamicPicture(canvasId);
 
+
     //bind events
+    //this.BindPickColor(canvasId);
     this.BindRedraw(canvasId, dynamicPicture);
     this.BindWindowResize();
+
 }
 
 var onWindowResize = [];
@@ -58,9 +61,22 @@ DynamicPictureStudio.BindRedraw = function (elementId, dynamicPicture) {
 DynamicPictureStudio.BindWindowResize = function () {
 
     window.onresize = function () {
-      
+
         for (var i in onWindowResize) {
             onWindowResize[i]();
         }
     };
+}
+
+DynamicPictureStudio.BindPickColor = function (canvasId) {
+
+    //canvasId = "mammaMia"
+    //$("#" + canvasId).click(function (eventArgs) {
+    //    var canvas = $("#" + canvasId)[0];
+    //    //debugger
+    //    var context = canvas.getContext('2d');
+    //    var imgd = context.getImageData(eventArgs.clientX, eventArgs.clientY, 1, 1).data
+    //    console.log(imgd)
+    //});
+
 }

@@ -92,6 +92,7 @@
     <Content Include="Scripts\DynamicPictures\GradientTest.js" />
     <Content Include="Scripts\DynamicPictures\GridDynamicPicture.js" />
     <Content Include="Scripts\DynamicPictures\HeartsDynamicPicture.js" />
+    <Content Include="Scripts\DynamicPictures\NestedScatter.js" />
     <Content Include="Scripts\DynamicPictures\SvgTest.js" />
     <Content Include="Scripts\Factories\ColorFactory.js" />
     <Content Include="Scripts\Factories\DynamicPictureFactory.js" />
@@ -135,6 +136,7 @@
     <Content Include="Views\Shared\_LayoutFullScreen.cshtml" />
     <Content Include="Views\Shared\_ScriptsInclude.cshtml" />
     <Content Include="Views\Home\Draw.cshtml" />
+    <Content Include="Content\svg\drawing.svg" />
     <None Include="Properties\PublishProfiles\Dev.pubxml" />
     <None Include="Properties\PublishProfiles\Live.pubxml" />
     <None Include="Web.Debug.config">

@@ -13,10 +13,10 @@ function SvgTest(canvasId) {
 
     var ctx = this.MainCanvas.Context;
 
-    scatterObjects(null, { cId: canvasId, mw: w, mh: h, count: 100 })
+    scatterObjects({ cId: canvasId, mw: w, mh: h, count: 100 })
 }
 
-function scatterObjects(objects, settings) {
+function scatterObjects(settings) {
 
     var canvas = new fabric.StaticCanvas(settings.cId, { renderOnAddRemove: false, stateful: false });
 

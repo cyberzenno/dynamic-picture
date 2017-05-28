@@ -136,7 +136,9 @@
     <Content Include="Views\Shared\_LayoutFullScreen.cshtml" />
     <Content Include="Views\Shared\_ScriptsInclude.cshtml" />
     <Content Include="Views\Home\Draw.cshtml" />
-    <Content Include="Content\svg\drawing.svg" />
+    <Content Include="Content\svg\drawing_0.svg" />
+    <Content Include="Content\svg\drawing_1.svg" />
+    <Content Include="Content\svg\drawing_2.svg" />
     <None Include="Properties\PublishProfiles\Dev.pubxml" />
     <None Include="Properties\PublishProfiles\Live.pubxml" />
     <None Include="Web.Debug.config">
@@ -161,7 +163,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>56345</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>

@@ -94,6 +94,7 @@
     <Content Include="Scripts\DynamicPictures\GridDynamicPicture.js" />
     <Content Include="Scripts\DynamicPictures\HeartsDynamicPicture.js" />
     <Content Include="Scripts\DynamicPictures\NestedScatter.js" />
+    <Content Include="Scripts\DynamicPictures\DrawShapeMidScreen.js" />
     <Content Include="Scripts\DynamicPictures\SvgTest.js" />
     <Content Include="Scripts\Factories\ColorFactory.js" />
     <Content Include="Scripts\Factories\DynamicPictureFactory.js" />
@@ -140,6 +141,8 @@
     <Content Include="Content\svg\drawing_0.svg" />
     <Content Include="Content\svg\drawing_1.svg" />
     <Content Include="Content\svg\drawing_2.svg" />
+    <Content Include="Content\svg\circle.svg" />
+    <Content Include="Content\svg\iphone.svg" />
     <None Include="Properties\PublishProfiles\Dev.pubxml" />
     <None Include="Properties\PublishProfiles\Live.pubxml" />
     <None Include="Web.Debug.config">

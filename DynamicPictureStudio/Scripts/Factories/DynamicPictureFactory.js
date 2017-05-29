@@ -29,9 +29,12 @@ DynamicPictureFactory.Create = function (name) {
 
         case "dp-gradient-test":
             return GradientTest;
-            //NestedScatters
+
         case "dp-nested-1":
             return NestedScatter;
+
+        case "dp-draw-mid":
+            return DrawShapeMidScreen;
 
 
         default:

@@ -11,18 +11,7 @@ function NestedScatter(canvasId) {
     var w = this.MainCanvas.Canvas.width;
     var h = this.MainCanvas.Canvas.height;
 
-    var ctx = this.MainCanvas.Context;
-
-    var canvasClone = CloneCanvas(this.MainCanvas.Canvas);
-    canvasClone.id = "mammaMia";
-
-    var $cloneId = "#" + canvasClone.id;
-    if (!$($cloneId).length) {
-
-        $("body").append(canvasClone)
-        $($cloneId).css("display", "none");
-
-    }
+    var canvasClone = CloneCanvas(this.MainCanvas.Canvas, true);
 
     var fabricClone = new fabric.StaticCanvas(canvasClone.id, { renderOnAddRemove: false, stateful: false });
 
@@ -40,10 +29,6 @@ function NestedScatter(canvasId) {
         ScatterObjects({ cId: canvasId, mw: w, mh: h, count: 100, svgPath: circlePath }, fabricClone)
 
     })
-
-
-
-
 
 }
 
@@ -97,7 +82,7 @@ function ScatterObjects(settings, fabricClone) {
 
 }
 
-function CloneCanvas(oldCanvas) {
+function CloneCanvas(oldCanvas, visible) {
 
     //create a new canvas
     var newCanvas = document.createElement('canvas');
@@ -106,7 +91,16 @@ function CloneCanvas(oldCanvas) {
     //set dimensions
     newCanvas.width = oldCanvas.width;
     newCanvas.height = oldCanvas.height;
+    newCanvas.id = oldCanvas.id + "-clone";
 
-    //return the new canvas
+    if (!$(newCanvas.id).length) {
+
+        $("body").append(newCanvas)
+        if (!visible) {
+            $(newCanvas.id).css("display", "none");
+        }
+    }
+
+    //return the new canvas id
     return newCanvas;
 }

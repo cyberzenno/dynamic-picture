@@ -11,12 +11,15 @@ function SvgTest(canvasId) {
     var w = this.MainCanvas.Canvas.width;
     var h = this.MainCanvas.Canvas.height;
 
+    var site_url = 'http://localhost:49618/DynamicPictureStudio/Example/svg?name=snowflake.svg';
+
+    //GRADIENT
     var ctx = this.MainCanvas.Context;
 
-    scatterObjects({ cId: canvasId, mw: w, mh: h, count: 100 })
+    flakeScatter({ cId: canvasId, mw: w, mh: h, count: 100 })
 }
 
-function scatterObjects(settings) {
+function flakeScatter(settings) {
 
     var canvas = new fabric.StaticCanvas(settings.cId, { renderOnAddRemove: false, stateful: false });
 

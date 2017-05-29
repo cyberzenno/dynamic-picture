@@ -13,7 +13,7 @@ function NestedScatter(canvasId) {
 
     var ctx = this.MainCanvas.Context;
 
-    var canvasClone = cloneCanvas(this.MainCanvas.Canvas);
+    var canvasClone = CloneCanvas(this.MainCanvas.Canvas);
     canvasClone.id = "mammaMia";
 
     var $cloneId = "#" + canvasClone.id;
@@ -28,12 +28,16 @@ function NestedScatter(canvasId) {
 
     var n = NumberGenerator.Generate(0, 2);
 
+    var baseUrl = UrlAssistant.GetBaseUrl();
+    var svgUrl = baseUrl + "/Content/svg/drawing_" + n + ".svg";
+
+    var circlePath = "M 33.517864,19.906906 A 16.912834,16.912834 0 0 1 17.44817,36.798711 16.912834,16.912834 0 0 1 -0.22373946,21.59109 16.912834,16.912834 0 0 1 14.083991,3.1830214 16.912834,16.912834 0 0 1 33.182441,16.55528";
     //draw the scatter layer
-    fabric.loadSVGFromURL('/Content/svg/drawing_' + n + '.svg', function (objects, options) {
+    fabric.loadSVGFromURL(svgUrl, function (objects, options) {
         var obj = fabric.util.groupSVGElements(objects, options);
         fabricClone.add(obj).renderAll();
 
-        scatterObjects({ cId: canvasId, mw: w, mh: h, count: 100 }, fabricClone)
+        ScatterObjects({ cId: canvasId, mw: w, mh: h, count: 100, svgPath: circlePath }, fabricClone)
 
     })
 
@@ -43,7 +47,9 @@ function NestedScatter(canvasId) {
 
 }
 
-function scatterObjects(settings, fabricClone) {
+function ScatterObjects(settings, fabricClone) {
+
+    //if (!settings || !fabricClone) return;
 
     var canvas = new fabric.StaticCanvas(settings.cId, { renderOnAddRemove: false, stateful: false });
 
@@ -57,18 +63,19 @@ function scatterObjects(settings, fabricClone) {
         height: mh
     });
 
-    var flakePath = "M 33.517864,19.906906 A 16.912834,16.912834 0 0 1 17.44817,36.798711 16.912834,16.912834 0 0 1 -0.22373946,21.59109 16.912834,16.912834 0 0 1 14.083991,3.1830214 16.912834,16.912834 0 0 1 33.182441,16.55528";
+    //var flakePath = "M 33.517864,19.906906 A 16.912834,16.912834 0 0 1 17.44817,36.798711 16.912834,16.912834 0 0 1 -0.22373946,21.59109 16.912834,16.912834 0 0 1 14.083991,3.1830214 16.912834,16.912834 0 0 1 33.182441,16.55528";
     for (var i = 0; i < (mw * mh) / 300; i++) {
 
         var top = NumberGenerator.Generate(0, mh);
         var left = NumberGenerator.Generate(0, mw);
         var color1 = ColorGenerator.GenerateFromPalette(PaletteFactory.Blue).ToRgbFunctionString();
 
-        var imgd = fabricClone.contextContainer.getImageData(left, top, 1, 1).data
+        if (fabricClone) {
+            var imgd = fabricClone.contextContainer.getImageData(left, top, 1, 1).data
+            if (imgd[0] == 0) continue;
+        }
 
-        if (imgd[0] == 0) continue;
-
-        var bFlake = new fabric.Path(flakePath);
+        var bFlake = new fabric.Path(settings.svgPath);
 
         bFlake.set({
             top: top,
@@ -90,7 +97,7 @@ function scatterObjects(settings, fabricClone) {
 
 }
 
-function cloneCanvas(oldCanvas) {
+function CloneCanvas(oldCanvas) {
 
     //create a new canvas
     var newCanvas = document.createElement('canvas');

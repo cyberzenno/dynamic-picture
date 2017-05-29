@@ -3,6 +3,7 @@
 /// <reference path="../Generators/NumberGenerator.js" />
 /// <reference path="../../Scripts Ext Libraries/TinyColor_1_4_1.js" />
 /// <reference path="../../ScriptsExtLibs/FabricJs_1_7_0.js" />
+/// <reference path="../Assistants/JollyAssistant.js" />
 /// <reference path="../Generators/NumberGenerator.js" />
 function NestedScatter(canvasId) {
 
@@ -11,7 +12,7 @@ function NestedScatter(canvasId) {
     var w = this.MainCanvas.Canvas.width;
     var h = this.MainCanvas.Canvas.height;
 
-    var canvasClone = CloneCanvas(this.MainCanvas.Canvas, true);
+    var canvasClone = JollyAssistant.CloneCanvas(this.MainCanvas.Canvas, true);
 
     var fabricClone = new fabric.StaticCanvas(canvasClone.id, { renderOnAddRemove: false, stateful: false });
 
@@ -80,27 +81,4 @@ function ScatterObjects(settings, fabricClone) {
 
     canvas.renderAll();
 
-}
-
-function CloneCanvas(oldCanvas, visible) {
-
-    //create a new canvas
-    var newCanvas = document.createElement('canvas');
-    var context = newCanvas.getContext('2d');
-
-    //set dimensions
-    newCanvas.width = oldCanvas.width;
-    newCanvas.height = oldCanvas.height;
-    newCanvas.id = oldCanvas.id + "-clone";
-
-    if (!$(newCanvas.id).length) {
-
-        $("body").append(newCanvas)
-        if (!visible) {
-            $(newCanvas.id).css("display", "none");
-        }
-    }
-
-    //return the new canvas id
-    return newCanvas;
 }

@@ -8,6 +8,8 @@
 /// <reference path="DynamicPictures/HeartsDynamicPicture.js" />
 /// <reference path="DynamicPictures/GridDynamicPicture.js" />
 /// <reference path="Factories/DynamicPictureFactory.js" />
+/// <reference path="ScriptsExtLibs/FabricJs_1_7_0.js" />
+
 var DynamicPictureStudio = {
     MainCanvas: {}//new DynamicPictureCanvas("canvas")
 };
@@ -26,6 +28,9 @@ DynamicPictureStudio.Run = function () {
 
 DynamicPictureStudio.Init = function (canvasId, dynamicPicture) {
 
+    //setup fabric JS
+    fabric.Object.prototype.objectCaching = false;
+    console.log("init DP")
     //add canvas
     var dpContainer = $("[data-dynamic-picture='" + canvasId + "']");
     dpContainer.append("<canvas id='" + canvasId + "'></canvas>");
@@ -35,7 +40,6 @@ DynamicPictureStudio.Init = function (canvasId, dynamicPicture) {
 
 
     //bind events
-    //this.BindPickColor(canvasId);
     this.BindRedraw(canvasId, dynamicPicture);
     this.BindWindowResize();
 
@@ -66,17 +70,4 @@ DynamicPictureStudio.BindWindowResize = function () {
             onWindowResize[i]();
         }
     };
-}
-
-DynamicPictureStudio.BindPickColor = function (canvasId) {
-
-    //canvasId = "mammaMia"
-    //$("#" + canvasId).click(function (eventArgs) {
-    //    var canvas = $("#" + canvasId)[0];
-    //    //debugger
-    //    var context = canvas.getContext('2d');
-    //    var imgd = context.getImageData(eventArgs.clientX, eventArgs.clientY, 1, 1).data
-    //    console.log(imgd)
-    //});
-
 }

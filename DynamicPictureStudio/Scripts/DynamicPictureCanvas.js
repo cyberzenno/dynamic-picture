@@ -7,9 +7,11 @@
 function DynamicPictureCanvas(canvasId) {
 
     var dpContainer = $("[data-dynamic-picture='" + canvasId + "']");
-    
+
     var ww = dpContainer.width(); //window.innerWidth;
     var hh = dpContainer.height();
+
+    console.log(ww + " " + hh);
 
     var domCanvas = document.getElementById(canvasId);
     domCanvas.width = ww;

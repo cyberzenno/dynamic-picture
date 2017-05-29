@@ -9,7 +9,7 @@ var DynamicPictureFactory = {
 }
 
 DynamicPictureFactory.Create = function (name) {
-
+    console.log("create " + name)
     switch (name) {
 
         case "dp-grid":
